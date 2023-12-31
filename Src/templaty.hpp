@@ -13,8 +13,8 @@ namespace Candler::Templaty {
             std::integral_constant<bool, std::is_enum_v<T> && !std::is_convertible_v<T, int>>::value;
 
     template<typename E>
-    constexpr auto to_integral(E e) -> std::underlying_type<E> {
-        return static_cast<std::underlying_type<E>>(e);
+    constexpr auto to_integral(E e) -> typename std::underlying_type_t<E> {
+        return static_cast<typename std::underlying_type_t<E>>(e);
     };
 
     class NonCopyable {
